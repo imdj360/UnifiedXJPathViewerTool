@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="{{csp}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UnifiedXJPath (Dansharp) Viewer</title>
+    <link rel="stylesheet" href="{{styleUri}}" />
+  </head>
+  <body>
+    <div class="viewer">
+      <header class="top-bar">
+        <div class="top-row">
+          <input id="queryInput" type="text" placeholder="Enter query" />
+          <button id="evaluateBtn" class="primary">Evaluate</button>
+        </div>
+        <div id="queryFeedback" class="query-feedback" aria-live="polite"></div>
+      </header>
+      <main class="main-content">
+        <aside class="tree-pane">
+          <div class="tree-header">
+            <div class="tree-title">Tree</div>
+            <input id="treeFilter" type="text" placeholder="Filter nodes" />
+          </div>
+          <div id="treeScroll" class="tree-scroll">
+            <div id="treeContainer" class="tree-container" role="tree"></div>
+          </div>
+        </aside>
+        <section class="inspector-pane">
+          <div class="inspector-section">
+            <div class="section-header">
+              <span class="section-title">Path</span>
+              <button id="copyPathBtn" class="secondary" disabled>
+                Copy Path
+              </button>
+            </div>
+            <input id="pathDisplay" type="text" class="path-display" readonly />
+          </div>
+
+          <div class="inspector-section">
+            <div class="section-header">
+              <span class="section-title">Value</span>
+              <div class="section-actions">
+                <button id="copyValueBtn" class="secondary" disabled>
+                  Copy Value
+                </button>
+                <button id="revealBtn" class="secondary" disabled>
+                  Reveal in Editor
+                </button>
+              </div>
+            </div>
+            <pre id="valuePreview" class="value-preview" tabindex="0"></pre>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="{{scriptUri}}"></script>
+  </body>
+</html>

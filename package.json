@@ -1,0 +1,106 @@
+{
+  "name": "UnifiedXJPath-Dansharp-viewer",
+  "displayName": "UnifiedXJPath (Dansharp) Viewer",
+  "description": "Split viewer for XML XPath and JSON JSONPath queries with synchronized tree and inspector",
+  "version": "0.5.0",
+  "publisher": "DanielJonathan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imdj360/UnifiedXJPathViewerTool.git"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:xml",
+    "onLanguage:json",
+    "onCommand:unifiedxjpath.openViewer",
+    "onCommand:unifiedxjpath.evaluateQuery",
+    "onCommand:unifiedxjpath.copyPath",
+    "onCommand:unifiedxjpath.formatDocument",
+    "onCommand:unifiedxjpath.manageNamespaces"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "unifiedxjpath.openViewer",
+        "title": "Open Query Viewer",
+        "category": "UnifiedXJPath (Dansharp) Viewer"
+      },
+      {
+        "command": "unifiedxjpath.evaluateQuery",
+        "title": "Evaluate Query",
+        "category": "UnifiedXJPath (Dansharp) Viewer"
+      },
+      {
+        "command": "unifiedxjpath.copyPath",
+        "title": "Copy Path",
+        "category": "UnifiedXJPath (Dansharp) Viewer"
+      },
+      {
+        "command": "unifiedxjpath.formatDocument",
+        "title": "Format Document",
+        "category": "UnifiedXJPath (Dansharp) Viewer"
+      },
+      {
+        "command": "unifiedxjpath.manageNamespaces",
+        "title": "Manage Namespaces",
+        "category": "UnifiedXJPath (Dansharp) Viewer"
+      }
+    ],
+    "configuration": {
+      "title": "UnifiedXJPath (Dansharp) Viewer",
+      "properties": {
+        "unifiedQuery.namespaces": {
+          "type": "object",
+          "default": {},
+          "description": "Namespace prefix to URI mappings for XPath queries (e.g., {\"ns\": \"http://example.com/ns\"})"
+        },
+        "unifiedQuery.outputLimit": {
+          "type": "number",
+          "default": 200,
+          "description": "Maximum number of characters to display in result previews"
+        },
+        "unifiedQuery.compactPaths": {
+          "type": "boolean",
+          "default": false,
+          "description": "Omit redundant [1] indexes for unique children in generated paths"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts",
+    "compile-tests": "tsc -p ./tsconfig.test.json",
+    "test-integration": "node ./out/test/runTest.js",
+    "test": "npm run compile && npm run compile-tests && npm run test-integration"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^18.x",
+    "@types/vscode": "^1.80.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^8.40.0",
+    "glob": "^11.0.3",
+    "mocha": "^11.7.4",
+    "prettier": "^3.6.2",
+    "typescript": "^5.1.3"
+  },
+  "dependencies": {
+    "@xmldom/xmldom": "^0.8.10",
+    "jsonc-parser": "^3.3.1",
+    "jsonpath-plus": "^10.3.0",
+    "xpath": "^0.0.32"
+  }
+}
