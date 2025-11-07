@@ -1,0 +1,144 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Modern gradient background -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E3A5F;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#2D5D9E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3A7BC8;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- XML side gradient (vibrant orange) -->
+    <linearGradient id="xmlGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF8C42;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF6B35;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- JSON side gradient (vibrant green) -->
+    <linearGradient id="jsonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#50E3C2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2ECC71;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Magnifying glass rim gradient -->
+    <linearGradient id="rimGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#B0B0B0;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#E0E0E0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#909090;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Glass lens gradient (semi-transparent blue) -->
+    <radialGradient id="lensGradient" cx="45%" cy="45%">
+      <stop offset="0%" style="stop-color:#E0F4FF;stop-opacity:0.4" />
+      <stop offset="60%" style="stop-color:#A0D8FF;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#60AAFF;stop-opacity:0.2" />
+    </radialGradient>
+
+    <!-- Handle gradient (metallic) -->
+    <linearGradient id="handleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#505050;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#707070;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#404040;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Shadow filter -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Glow filter for highlights -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background rounded square -->
+  <rect x="4" y="4" width="120" height="120" rx="26" fill="url(#bgGradient)"/>
+
+  <!-- Subtle vertical divider -->
+  <line x1="64" y1="24" x2="64" y2="72" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+
+  <!-- XML Section (Left) -->
+  <!-- XML label -->
+  <text x="32" y="32" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle" opacity="0.95">XML</text>
+
+  <!-- XML angle brackets < > -->
+  <g filter="url(#shadow)">
+    <!-- Left bracket < -->
+    <path d="M 28 46 L 18 54 L 28 62" stroke="url(#xmlGradient)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 28 46 L 18 54 L 28 62" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+
+    <!-- Right bracket > -->
+    <path d="M 36 46 L 46 54 L 36 62" stroke="url(#xmlGradient)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 36 46 L 46 54 L 36 62" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+  </g>
+
+  <!-- JSON Section (Right) -->
+  <!-- JSON label -->
+  <text x="96" y="32" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle" opacity="0.95">JSON</text>
+
+  <!-- JSON curly braces { } -->
+  <g filter="url(#shadow)">
+    <!-- Left brace { -->
+    <path d="M 86 46 C 86 46, 82 46, 82 50 L 82 52 C 82 54, 80 54, 78 54 C 80 54, 82 54, 82 56 L 82 58 C 82 62, 86 62, 86 62"
+          stroke="url(#jsonGradient)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 86 46 C 86 46, 82 46, 82 50 L 82 52 C 82 54, 80 54, 78 54 C 80 54, 82 54, 82 56 L 82 58 C 82 62, 86 62, 86 62"
+          stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+
+    <!-- Right brace } -->
+    <path d="M 106 46 C 106 46, 110 46, 110 50 L 110 52 C 110 54, 112 54, 114 54 C 112 54, 110 54, 110 56 L 110 58 C 110 62, 106 62, 106 62"
+          stroke="url(#jsonGradient)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 106 46 C 106 46, 110 46, 110 50 L 110 52 C 110 54, 112 54, 114 54 C 112 54, 110 54, 110 56 L 110 58 C 110 62, 106 62, 106 62"
+          stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+  </g>
+
+  <!-- Magnifying Glass (Bottom Center) - Realistic Lens -->
+  <g filter="url(#shadow)">
+    <!-- Handle shadow base -->
+    <line x1="75" y1="101" x2="86" y2="112" stroke="#000000" stroke-width="8" stroke-linecap="round" opacity="0.2"/>
+
+    <!-- Handle -->
+    <line x1="75" y1="101" x2="86" y2="112" stroke="url(#handleGradient)" stroke-width="7" stroke-linecap="round"/>
+    <line x1="75" y1="101" x2="86" y2="112" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+
+    <!-- Outer rim (metallic frame) -->
+    <circle cx="62" cy="88" r="18" stroke="url(#rimGradient)" stroke-width="5" fill="none"/>
+    <circle cx="62" cy="88" r="18" stroke="#FFFFFF" stroke-width="2" fill="none" opacity="0.4"/>
+
+    <!-- Glass lens fill with gradient -->
+    <circle cx="62" cy="88" r="15.5" fill="url(#lensGradient)"/>
+
+    <!-- Inner rim reflection -->
+    <circle cx="62" cy="88" r="16" stroke="#404040" stroke-width="1" fill="none" opacity="0.3"/>
+
+    <!-- Glass highlight arc (top-left) -->
+    <path d="M 50 82 Q 56 76 65 78" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7" filter="url(#glow)"/>
+
+    <!-- Secondary highlight -->
+    <path d="M 52 85 Q 55 82 60 83" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/>
+
+    <!-- Path visualization dots inside lens -->
+    <circle cx="62" cy="88" r="3" fill="#2D5D9E"/>
+    <circle cx="62" cy="88" r="2" fill="#FFFFFF" opacity="0.8"/>
+    <circle cx="57" cy="83" r="2" fill="#2D5D9E" opacity="0.7"/>
+    <circle cx="57" cy="83" r="1.2" fill="#FFFFFF" opacity="0.6"/>
+    <circle cx="67" cy="83" r="2" fill="#2D5D9E" opacity="0.7"/>
+    <circle cx="67" cy="83" r="1.2" fill="#FFFFFF" opacity="0.6"/>
+    <circle cx="57" cy="93" r="1.5" fill="#2D5D9E" opacity="0.5"/>
+    <circle cx="67" cy="93" r="1.5" fill="#2D5D9E" opacity="0.5"/>
+  </g>
+
+  <!-- Bottom text label -->
+  <text x="64" y="120" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#FFFFFF" text-anchor="middle" opacity="0.85">XPath • JSONPath</text>
+</svg>

@@ -2,9 +2,10 @@
   "name": "UnifiedXJPath-Dansharp-viewer",
   "displayName": "UnifiedXJPath (Dansharp) Viewer",
   "description": "Split viewer for XML XPath and JSON JSONPath queries with synchronized tree and inspector",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "publisher": "DanielJonathan",
   "license": "MIT",
+  "icon": "images/icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/imdj360/UnifiedXJPathViewerTool.git"
