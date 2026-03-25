@@ -879,7 +879,7 @@ class QueryViewerManager implements vscode.Disposable {
     return stored ? { ...stored } : {};
   }
 
-  private revealNodeInEditor(
+  private async revealNodeInEditor(
     nodeId: string | undefined,
     options: { preserveFocus?: boolean } = {},
   ) {
@@ -892,18 +892,19 @@ class QueryViewerManager implements vscode.Disposable {
       return;
     }
 
-    const editor = this.getRelevantEditor();
+    let editor = this.getRelevantEditor();
     if (
       !editor ||
       editor.document.uri.toString() !== this.activeDocument.uri.toString()
     ) {
-      vscode.window.showTextDocument(this.activeDocument, {
+      // Use await to ensure we capture the editor instance even when webview has focus
+      editor = await vscode.window.showTextDocument(this.activeDocument, {
         viewColumn: vscode.ViewColumn.Active,
         preserveFocus: !!options.preserveFocus,
       });
     }
 
-    const finalEditor = vscode.window.activeTextEditor;
+    const finalEditor = editor;
     if (
       !finalEditor ||
       finalEditor.document.uri.toString() !== this.activeDocument.uri.toString()
