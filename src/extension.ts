@@ -199,13 +199,13 @@ class QueryViewerManager implements vscode.Disposable {
         this.copyValueById(message.nodeId);
         break;
       case "revealNode":
-        this.revealNodeInEditor(message.nodeId);
+        void this.revealNodeInEditor(message.nodeId);
         break;
       case "evaluateQuery":
         void this.evaluateQuery(message.query);
         break;
       case "focusEditor":
-        this.revealNodeInEditor(message.nodeId, { preserveFocus: false });
+        void this.revealNodeInEditor(message.nodeId, { preserveFocus: false });
         break;
       default:
         break;
@@ -372,7 +372,7 @@ class QueryViewerManager implements vscode.Disposable {
     this.sendInspector(node);
 
     if (firstMatch.range) {
-      this.revealNodeInEditor(node.id, { preserveFocus: true });
+      void this.revealNodeInEditor(node.id, { preserveFocus: true });
     }
   }
 
@@ -552,7 +552,7 @@ class QueryViewerManager implements vscode.Disposable {
     this.postMessage("clearQuery", {});
 
     if (revealInEditor) {
-      this.revealNodeInEditor(node.id, { preserveFocus: false });
+      void this.revealNodeInEditor(node.id, { preserveFocus: false });
     }
   }
 
@@ -773,10 +773,7 @@ class QueryViewerManager implements vscode.Disposable {
       return;
     }
 
-    const defaults = this.getViewerConfig().namespaces;
     const stored = this.getStoredNamespaces(document);
-    const auto = this.tree?.namespaces ?? {};
-    const combinedForDisplay = { ...auto, ...defaults, ...stored };
     const hasStored = Object.keys(stored).length > 0;
 
     interface NamespaceAction extends vscode.QuickPickItem {
